@@ -178,7 +178,7 @@ if 'detailed_advice' in st.session_state:
     if st.button("Analyze It"):
         with st.spinner("Analyzing your strategy..."):
             simple_advice = simplify_advice(st.session_state['detailed_advice'])
-            st.markdown("### Simplified Investment Plan")
+            st.markdown("### Analyzed Investment Plan")
             st.markdown(simple_advice)
 
 st.markdown("""
