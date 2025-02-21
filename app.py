@@ -28,8 +28,9 @@ def get_investment_advice(amount, risk, goal, horizon, income, tax_bracket, exis
             - Tax Bracket: {tax_bracket}%
             - Existing Investments: {existing_investments}
             - Monthly Expenses: ₹{monthly_expenses}
-
+              
             Provide a simple investment strategy for the Indian market, including:
+            - give suggestions /reccomendation in simple ord so everyone can understand
             - A portfolio allocation (equities and debt) with specific percentages and fund examples, considering my income and expenses.
             - Tax-saving options under Indian tax laws (e.g., ELSS under Section 80C up to ₹1.5 lakh, municipal bonds), tailored to my tax bracket and income.
             - Sector analysis for growth (e.g., technology, healthcare, industrials) with fund recommendations suitable for my risk and horizon.
