@@ -30,7 +30,8 @@ def get_investment_advice(amount, risk, goal, horizon, income, tax_bracket, exis
             - Monthly Expenses: ₹{monthly_expenses}
               
             Provide a simple investment strategy for the Indian market, including:
-            - give suggestions /reccomendation in simple ord so everyone can understand
+            - give suggestions /reccomendation in simple words so everyone can understand
+            - no need to give detailed explanation
             - A portfolio allocation (equities and debt) with specific percentages and fund examples, considering my income and expenses.
             - Tax-saving options under Indian tax laws (e.g., ELSS under Section 80C up to ₹1.5 lakh, municipal bonds), tailored to my tax bracket and income.
             - Sector analysis for growth (e.g., technology, healthcare, industrials) with fund recommendations suitable for my risk and horizon.
@@ -55,7 +56,7 @@ def get_investment_advice(amount, risk, goal, horizon, income, tax_bracket, exis
 def simplify_advice(detailed_advice):
     try:
         prompt = f"""
-            Simplify this detailed investment advice for a beginner in India:
+            give more detailed investment advice for a expert in India:
             {detailed_advice}
             Provide a detailed,expert version in simple language, keeping key points like:
             - Where to put the money (e.g., stocks, savings).
