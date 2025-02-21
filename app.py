@@ -29,7 +29,7 @@ def get_investment_advice(amount, risk, goal, horizon, income, tax_bracket, exis
             - Existing Investments: {existing_investments}
             - Monthly Expenses: ₹{monthly_expenses}
 
-            Provide a detailed investment strategy for the Indian market, including:
+            Provide a simple investment strategy for the Indian market, including:
             - A portfolio allocation (equities and debt) with specific percentages and fund examples, considering my income and expenses.
             - Tax-saving options under Indian tax laws (e.g., ELSS under Section 80C up to ₹1.5 lakh, municipal bonds), tailored to my tax bracket and income.
             - Sector analysis for growth (e.g., technology, healthcare, industrials) with fund recommendations suitable for my risk and horizon.
@@ -56,7 +56,7 @@ def simplify_advice(detailed_advice):
         prompt = f"""
             Simplify this detailed investment advice for a beginner in India:
             {detailed_advice}
-            Provide a short, easy-to-understand version in simple language, keeping key points like:
+            Provide a detailed,expert version in simple language, keeping key points like:
             - Where to put the money (e.g., stocks, savings).
             - How to save on taxes.
             - What grows well.
@@ -97,7 +97,7 @@ def create_income_chart(income, monthly_expenses, investment_amount):
     return fig
 
 # Streamlit UI
-st.title("Advanced GenAI Financial Assistant for India")
+st.title(" GenAI Financial Assistant")
 
 st.write("Provide your financial details below for a personalized investment strategy tailored to Indian markets. Hover over the '?' icons for explanations.")
 
@@ -135,9 +135,11 @@ with st.form(key="investment_form"):
         step=10000, 
         help="Your yearly income before taxes, e.g., ₹15,00,000."
     )
-    tax_bracket = st.selectbox(
+    tax_bracket = st.slider(
         "Tax Bracket (%)", 
-        [10, 20, 30, 40], 
+        min_value=0, 
+        max_value=40, 
+        step=1, 
         help="Your tax rate based on Indian slabs."
     )
     existing_investments = st.text_area(
@@ -173,8 +175,8 @@ if submit_button:
 
 # "Make It Simple" button outside the form
 if 'detailed_advice' in st.session_state:
-    if st.button("Make It Simple"):
-        with st.spinner("Simplifying your strategy..."):
+    if st.button("Analyze It"):
+        with st.spinner("Analyzing your strategy..."):
             simple_advice = simplify_advice(st.session_state['detailed_advice'])
             st.markdown("### Simplified Investment Plan")
             st.markdown(simple_advice)
